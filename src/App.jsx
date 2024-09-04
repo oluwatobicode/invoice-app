@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Invoice from "./pages/Invoice";
-import InvoiceDetails from "./pages/InvoiceDetails";
+import InvoiceDetailsPage from "./pages/InvoiceDetailsPage";
 import PageNotFound from "./pages/PageNotFound";
 
 const queryClient = new QueryClient({
@@ -27,7 +27,7 @@ function App() {
             <Route index element={<Login />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="invoice" element={<Invoice />} />
-            <Route path="invoice/:id" element={<InvoiceDetails />} />
+            <Route path="invoice/:id" element={<InvoiceDetailsPage />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>

@@ -1,13 +1,12 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Status from "../ui/Status";
 import { formatCurrency } from "../utils/formatCurrency";
-import { useState } from "react";
+// import { useState } from "react";
 // import { formatDate } from "../utils/formatDate";
 
 /* eslint-disable react/prop-types */
 function InvoiceItem({ inv }) {
   const navigate = useNavigate();
-  const [query, setQuery] = useState("");
   const { id, clientName, total, paymentDue, status } = inv;
 
   return (
