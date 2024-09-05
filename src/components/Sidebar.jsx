@@ -1,6 +1,8 @@
+import InvoiceForm from "../features/InvoiceForm";
+
 function Sidebar() {
   return (
-    <div className="w-screen h-20 lg:h-screen lg:w-24">
+    <div className="w-screen h-20 lg:h-screen lg:w-[26px] flex flex-row z-10 bg-[#0000004D] ">
       <div className="bg-blueLight flex flex-row justify-center items-center h-full lg:flex-col lg:h-full lg:rounded-e-2xl">
         <div className="bg-purpleLight flex items-center rounded-e-2xl justify-center h-full w-20 mr-auto lg:h-24 lg:w-full lg:mb-auto ">
           <img src="/assets/logo.svg" alt="" />
@@ -17,6 +19,10 @@ function Sidebar() {
             alt="user-profile-picture"
           />
         </div>
+      </div>
+
+      <div className="absolute hidden left-14 p-10 -z-10 w-[650px] rounded-tr-2xl rounded-br-2xl bg-white h-screen  ">
+        <InvoiceForm />
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ function Navbar() {
         </p>
       </div>
 
+   
       <div className="mr-2 ">
         <button className="flex gap-2 items-center justify-center">
           <p className="font-bold flex gap-1">

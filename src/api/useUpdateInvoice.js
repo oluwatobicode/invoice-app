@@ -13,9 +13,10 @@ export function useUpdateInvoice() {
       }),
 
     onSuccess: (data) => {
-      toast.success(`Invoice ${data.id} successfully updated `);
+      toast.success(`Invoice ${data.data.id} successfully updated `);
       queryClient.invalidateQueries({ active: true });
-      () => navigate("/invoice");
+      navigate("/invoice");
+      console.log(data);
     },
     onError: () => toast.error("There was an error sending the invoice"),
   });
