@@ -7,8 +7,8 @@ export function useDeleteInvoice() {
 
   const { isLoading: isDeleting, mutate: deleteInvoice } = useMutation({
     mutationFn: DeleteInvoiceApi,
-    onSuccess: () => {
-      toast.success("Invoice Successfully deleted!");
+    onSuccess: (data) => {
+      toast.success(`Invoice ${data.data.id} successfully updated !`);
       queryClient.invalidateQueries({
         queryKey: ["invoices"],
       });

@@ -13,7 +13,7 @@ export function useUpdateInvoice() {
       }),
 
     onSuccess: (data) => {
-      toast.success(`Invoice ${data.data.id} successfully updated `);
+      toast.success(`Invoice ${data.data.id} successfully updated !`);
       queryClient.invalidateQueries({ active: true });
       navigate("/invoice");
       console.log(data);

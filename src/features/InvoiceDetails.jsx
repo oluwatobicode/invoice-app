@@ -1,12 +1,15 @@
+import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { useInvoiceDetails } from "../api/getInvoiceDetails";
+import { useDeleteInvoice } from "../api/useDeleteInvoice";
+import { useUpdateInvoice } from "../api/useUpdateInvoice";
+
 import { formatCurrency } from "../utils/formatCurrency";
+
 import Loader from "../ui/Loader";
 import Status from "../ui/Status";
 import Modal from "../ui/Modal";
 import ConfirmDelete from "../ui/ConfirmDelete";
-import { useDeleteInvoice } from "../api/useDeleteInvoice";
-import { useUpdateInvoice } from "../api/useUpdateInvoice";
 
 function InvoiceDetails() {
   const { isLoading, invoiceDetail } = useInvoiceDetails();
@@ -78,7 +81,10 @@ function InvoiceDetails() {
           <Modal.Window name="delete">
             <ConfirmDelete
               disabled={isDeleting}
-              onConfirm={() => deleteInvoice(id)}
+              onConfirm={() => {
+                deleteInvoice(id);
+                navigate("/invoice");
+              }}
               id={id}
             />
           </Modal.Window>
@@ -105,13 +111,17 @@ function InvoiceDetails() {
                   <h1 className="mb-2 text-lightDarker font-medium text-[13px]">
                     Invoice Date
                   </h1>
-                  <p className="font-bold text-[15px]">{createdAt}</p>
+                  <p className="font-bold text-[15px]">
+                    {format(new Date(createdAt), "PPP")}
+                  </p>
                 </div>
                 <div className="">
                   <h1 className="mb-2 text-lightDarker font-medium text-[13px]">
                     Payment Due
                   </h1>
-                  <p className="font-bold text-[15px]">{paymentDue}</p>
+                  <p className="font-bold text-[15px]">
+                    {format(new Date(paymentDue), "PPP")}
+                  </p>
                 </div>
               </div>
               <div className="">

@@ -1,8 +1,7 @@
+import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
-import Status from "../ui/Status";
 import { formatCurrency } from "../utils/formatCurrency";
-// import { useState } from "react";
-// import { formatDate } from "../utils/formatDate";
+import Status from "../ui/Status";
 
 /* eslint-disable react/prop-types */
 function InvoiceItem({ inv }) {
@@ -18,8 +17,7 @@ function InvoiceItem({ inv }) {
             {id}
           </p>
           <p className="text-lightDarker font-normal">
-            {/* due{formatDate(Date.parse(paymentDue))} */}
-            Due 31 Oct 2021
+            {`Due ${format(new Date(paymentDue), "PPP")}`}
           </p>
           <h1 className="text-dark font-extrabold">{formatCurrency(total)}</h1>
         </div>
